@@ -4,9 +4,9 @@ const WebSocket = require('ws');
 const environment = 'cac1.pure.cloud'; // Canada region
 const orgId = '07d7213b-8d0e-4984-b806-5f416483b7d3'; // Organization Id
 const deploymentId = 'c843036b-d7d8-451a-9087-557ee9820f74'; // Deployment Id - associated with the web chat location - same as deploymentKey on https://developer.dev-genesys.cloud/developer-tools/#/webchat
-const queueName = 'testq'; // The name of the queue
-const displayName = 'Erik'; // The display name for the guest chat conversation
-const email = 'erik.langille@genesys.com' // The associated email address for the guest
+const queueName = 'HackTheNorthExampleQueue'; // The name of the queue
+const displayName = 'Yu Xuan'; // The display name for the guest chat conversation
+const email = 'yu_xuan.ou@genesys.com' // The associated email address for the guest
 ​
 const routingTarget = {"targetAddress":queueName,"targetType":"QUEUE","priority":2};
 ​
