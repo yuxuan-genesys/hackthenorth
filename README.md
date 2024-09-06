@@ -8,4 +8,5 @@ Pre-requisite
 
 Running the program
 -------------------
-* Run `npm start`
+* Run `npm run start:survey` for creating a publishing a survey form.
+* Run `npm run start:chat` for the web chat demo.
