@@ -16,7 +16,8 @@
     "ws": "^8.18.0"
   },
   "scripts": {
-    "start": "node api-sample/oauth.js",
+    "start:survey": "node api-sample/oauth.js",
+    "start:chat": "node api-sample/chatsample.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
