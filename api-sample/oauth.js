@@ -9,6 +9,8 @@ dotenv.config();
 
 const clientId = process.env.GENESYS_CLOUD_CLIENT_ID;
 const clientSecret = process.env.GENESYS_CLOUD_CLIENT_SECRET;
+console.log(clientId);
+console.log(clientSecret);
 // const environment = process.env.GENESYS_CLOUD_ENVIRONMENT; // expected format: mypurecloud.com
 const environment = platformClient.PureCloudRegionHosts.ca_central_1
 let creds = null;
@@ -124,7 +126,7 @@ function createSurvey() {
             'Content-Type': 'application/json',
             'Authorization': `${creds.token_type} ${creds.access_token}`
         },
-        body: JSON.stringify({"name":"Test Survey 9","language":"en-US","questionGroups":[{"id":"5ef87c2b-074c-4eb2-998a-c3f5e63b4a97","name":"Tell me about yourself","type":"questionGroup","questions":[{"id":"c4a835a2-e151-4e0b-9d79-169ce435e1ca","text":"What is your name","helpText":"","type":"freeTextQuestion","naEnabled":false,"answerOptions":[],"maxResponseCharacters":250}]}]})
+        body: JSON.stringify({"name":"Test Survey demo","language":"en-US","questionGroups":[{"id":"5ef87c2b-074c-4eb2-998a-c3f5e63b4a97","name":"Tell me about yourself","type":"questionGroup","questions":[{"id":"c4a835a2-e151-4e0b-9d79-169ce435e1ca","text":"What is your name","helpText":"","type":"freeTextQuestion","naEnabled":false,"answerOptions":[],"maxResponseCharacters":250}]}]})
     })
     .then(res => {
         if(res.ok){

@@ -1,17 +1,14 @@
 const fetch = require('node-fetch');
 const WebSocket = require('ws');
-​
 const environment = 'cac1.pure.cloud'; // Canada region
 const orgId = '07d7213b-8d0e-4984-b806-5f416483b7d3'; // Organization Id
 const deploymentId = 'c843036b-d7d8-451a-9087-557ee9820f74'; // Deployment Id - associated with the web chat location - same as deploymentKey on https://developer.dev-genesys.cloud/developer-tools/#/webchat
 const queueName = 'HackTheNorthExampleQueue'; // The name of the queue
 const displayName = 'Yu Xuan'; // The display name for the guest chat conversation
 const email = 'yu_xuan.ou@genesys.com' // The associated email address for the guest
-​
 const routingTarget = {"targetAddress":queueName,"targetType":"QUEUE","priority":2};
-​
-const memberInfo = {"displayName":displayName,"role":"CUSTOMER","customFields":{"firstName":"Erik","lastName":"","addressStreet":"","addressCity":"","addressPostalCode":"","addressState":"","phoneNumber":"","customField1Label":"","customField1":"","customField2Label":"","customField2":"","customField3Label":"","customField3":"","_genesys_source":"web","_genesys_referrer":"","_genesys_url":"https://developer.dev-genesys.cloud/developer-tools/#/webchat","_genesys_pageTitle":"Developer Tools","_genesys_browser":"Chrome","_genesys_OS":"Mac OS X","email":email,"subject":""}}
-​
+const memberInfo = {"displayName":displayName,"role":"CUSTOMER","customFields":{"firstName":"Customer","lastName":"","addressStreet":"","addressCity":"","addressPostalCode":"","addressState":"","phoneNumber":"","customField1Label":"","customField1":"","customField2Label":"","customField2":"","customField3Label":"","customField3":"","_genesys_source":"web","_genesys_referrer":"","_genesys_url":"https://developer.dev-genesys.cloud/developer-tools/#/webchat","_genesys_pageTitle":"Developer Tools","_genesys_browser":"Chrome","_genesys_OS":"Mac OS X","email":email,"subject":""}}
+
 function startGuestChat(body) {
     console.log('start guest chat');
     return fetch(`https://api.${environment}/api/v2/webchat/guest/conversations`, {
@@ -35,7 +32,7 @@ function startGuestChat(body) {
     })
     .catch(e => console.error(e));
 }
-​
+
 function sendGuestChat(jwt, conversationId, messageId, text) {
     console.log('send guest chat');
     console.log(arguments);
@@ -58,22 +55,20 @@ function sendGuestChat(jwt, conversationId, messageId, text) {
     })
     .catch(e => console.error(e));
 }
-​
+
 function connectWebSocket(eventStreamUri) {
     return new Promise((resolve, reject) => {
         const ws = new WebSocket(eventStreamUri);
-​
         ws.on('open', () => {
             console.log(`Connected to ${eventStreamUri}`);
             resolve()
         });
-​
         ws.on('message', (data) => { // Process the messages here
             console.log(`Received message: ${data}`);
         });
     })
 }
-​
+
 // Send guest messages
 startGuestChat().then((res) => 
     connectWebSocket(res["eventStreamUri"]).then(async () => {
