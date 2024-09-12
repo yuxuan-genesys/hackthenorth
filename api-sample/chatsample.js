@@ -4,10 +4,10 @@ const environment = 'cac1.pure.cloud'; // Canada region
 const orgId = '07d7213b-8d0e-4984-b806-5f416483b7d3'; // Organization Id for genesys6
 const deploymentId = 'c843036b-d7d8-451a-9087-557ee9820f74'; // Deployment Id - associated with the web chat location - same as deploymentKey on https://developer.dev-genesys.cloud/developer-tools/#/webchat
 const queueName = 'HackTheNorthExampleQueue'; // The name of the queue
-const displayName = 'Customer Name'; // The display name for the guest chat conversation
-const email = 'customer@genesys.com' // The associated email address for the guest
+const displayName = 'Yu Xuan Customer'; // The display name for the guest chat conversation
+const email = 'yu_xuan.ou@genesys.com' // The associated email address for the guest
 const routingTarget = {"targetAddress":queueName,"targetType":"QUEUE","priority":2};
-const memberInfo = {"displayName":displayName,"role":"CUSTOMER","customFields":{"firstName":"Customer","lastName":"","addressStreet":"","addressCity":"","addressPostalCode":"","addressState":"","phoneNumber":"","customField1Label":"","customField1":"","customField2Label":"","customField2":"","customField3Label":"","customField3":"","_genesys_source":"web","_genesys_referrer":"","_genesys_url":"https://developer.dev-genesys.cloud/developer-tools/#/webchat","_genesys_pageTitle":"Developer Tools","_genesys_browser":"Chrome","_genesys_OS":"Mac OS X","email":email,"subject":""}}
+const memberInfo = {"displayName":displayName,"role":"CUSTOMER","customFields":{"firstName":"Yu Xuan Customer","lastName":"","addressStreet":"","addressCity":"","addressPostalCode":"","addressState":"","phoneNumber":"","customField1Label":"","customField1":"","customField2Label":"","customField2":"","customField3Label":"","customField3":"","_genesys_source":"web","_genesys_referrer":"","_genesys_url":"https://developer.dev-genesys.cloud/developer-tools/#/webchat","_genesys_pageTitle":"Developer Tools","_genesys_browser":"Chrome","_genesys_OS":"Mac OS X","email":email,"subject":""}}
 
 function startGuestChat(body) {
     console.log('start guest chat');
